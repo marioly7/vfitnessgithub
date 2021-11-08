@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.EjercicioDao">
+
+
+    <select id="getEjercicios" resultType="bo.ucb.edu.ingsoft.dto.EjercicioResponse">
+    SELECT
+    e.ejercicio_id as ejercicioId,
+    e.series as series,
+    e.repeticiones as repeticiones,
+    v.link as link,
+    d.dificultad as dificultad
+    FROM ejercicios e, videos v, dificultades d
+    WHERE v.video_id = e.video_id
+    AND d.dificultad_id = e.dificultad_id
+    </select>
+
+    <select id="getEjercicioById" resultType="bo.ucb.edu.ingsoft.dto.EjercicioResponse">
+    SELECT
+        e.ejercicio_id as ejercicioId,
+        e.series as series,
+        e.repeticiones as repeticiones,
+        v.link as link,
+        d.dificultad as dificultad
+    FROM ejercicios e, videos v, dificultades d
+    WHERE v.video_id = e.video_id
+      AND d.dificultad_id = e.dificultad_id
+     AND e.ejercicio_id = #{ejercicioId}
+    </select>
+
+    <select id="getEjercicioByVideoId" resultType="bo.ucb.edu.ingsoft.dto.EjercicioResponse">
+        SELECT
+            e.ejercicio_id as ejercicioId,
+            v.nombre as ejercicioName,
+            e.series as series,
+            e.repeticiones as repeticiones,
+            v.link as link,
+            d.dificultad as dificultad
+        FROM ejercicios e, videos v, dificultades d
+        WHERE v.video_id = e.video_id
+          AND d.dificultad_id = e.dificultad_id
+          AND e.video_id = #{videoId}
+          AND e.dificultad_id = #{dificultadId}
+    </select>
+
+    <select id="getEjercicioStatus" resultType="Integer">
+        SELECT DISTINCT
+            ue.status
+        FROM ejercicios e, videos v, users_ejercicios ue, users u
+        WHERE e.ejercicio_id = ue.ejercicio_id
+        AND ue.ejercicio_id = #{ejercicioId}
+        AND ue.user_id = u.user_id
+        AND u.user_id = #{userId}
+    </select>
+
+    <insert id="inserIntoUserEjercicios" parameterType="Integer">
+        INSERT INTO users_ejercicios ( users_ejercicios_id, status, ejercicio_id, user_id )
+        SELECT  null, 0, e.ejercicio_id, #{userId}
+        FROM    ejercicios e
+    </insert>
+
+
+    <select id="userExistsInUserEjercicios" resultType="Integer">
+    SELECT DISTINCT
+    ue.user_id
+    FROM users_ejercicios ue
+    WHERE ue.user_id = #{userId}
+    </select>
+
+    <update id="updateStatus" parameterType="bo.ucb.edu.ingsoft.model.UsuarioEjercicios">
+        UPDATE users_ejercicios
+        SET status = #{status}
+        WHERE ejercicio_id = #{ejercicioId}
+        AND user_id = #{userId}
+    </update>
+
+</mapper>

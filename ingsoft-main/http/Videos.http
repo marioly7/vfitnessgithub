@@ -1,0 +1,14 @@
+###Request para obtener los usuarios
+GET http://localhost:8083/videos/allVideos
+Accept: application/json
+
+###
+
+GET http://localhost:8083/videos/videoById?videoId=2
+Accept: application/json
+
+###
+
+GET http://localhost:8083/videos/videoByZonaId?zonaId=2
+Accept: application/json
+

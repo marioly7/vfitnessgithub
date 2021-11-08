@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.ZonaDao">
+
+
+    <select id="getZonas" resultType="bo.ucb.edu.ingsoft.dto.ZonaResponse">
+    SELECT
+    z.zona_id as zonaId,
+    z.nombre as zona
+    FROM zonas z
+    </select>
+
+    <select id="getZonaById" resultType="bo.ucb.edu.ingsoft.dto.ZonaResponse">
+        SELECT
+            z.zona_id as zonaId,
+            z.nombre as zona
+        FROM zonas z
+        WHERE z.zona_id = #{zonaId}
+    </select>
+</mapper>

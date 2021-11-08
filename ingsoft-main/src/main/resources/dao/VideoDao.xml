@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.VideoDao">
+
+
+    <select id="getVideos" resultType="bo.ucb.edu.ingsoft.dto.VideoResponse">
+    SELECT
+    v.video_id as videoId,
+    v.nombre as nombre,
+    v.link as link,
+    z.zona_id as zonaId,
+    z.nombre as zona
+    FROM videos v, zonas z
+    WHERE v.zona_id = z.zona_id
+    </select>
+
+    <select id="getVideoById" resultType="bo.ucb.edu.ingsoft.dto.VideoResponse">
+        SELECT
+            v.video_id as videoId,
+            v.nombre as nombre,
+            v.link as link,
+            z.zona_id as zonaId,
+            z.nombre as zona
+        FROM videos v, zonas z
+        WHERE v.zona_id = z.zona_id
+        AND v.video_id = #{videoId}
+    </select>
+
+    <select id="getVideoByZonaId" resultType="bo.ucb.edu.ingsoft.dto.VideoResponse">
+        SELECT
+            v.video_id as videoId,
+            v.nombre as nombre,
+            v.link as link,
+            z.zona_id as zonaId,
+            z.nombre as zona
+        FROM videos v, zonas z
+        WHERE v.zona_id = z.zona_id
+          AND v.zona_id = #{zonaId}
+    </select>
+</mapper>

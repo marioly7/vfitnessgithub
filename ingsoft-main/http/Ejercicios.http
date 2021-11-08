@@ -1,0 +1,29 @@
+###Request para obtener los usuarios
+GET http://localhost:8083/ejercicios/allEjercicios
+Accept: application/json
+
+###
+
+GET http://localhost:8083/ejercicios/ejercicioById?ejercicioId=2
+Accept: application/json
+
+###
+
+GET http://localhost:8083/ejercicios/ejercicioStatusByUserId?ejercicioId=1&userId=8
+Accept: application/json
+
+###
+
+GET http://localhost:8083/ejercicios/ejercicioByVideoId?videoId=19&dificultadId=1
+Accept: application/json
+
+###
+PUT http://localhost:8083/ejercicios/updateStatus
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ejercicioId": 1,
+  "userId": 8,
+  "status": 1
+}

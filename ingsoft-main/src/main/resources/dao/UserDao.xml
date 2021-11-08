@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.UserDao">
+    <insert id="addUser" parameterType="bo.ucb.edu.ingsoft.model.User">
+    INSERT INTO users
+        (`user_id`,`name`, `age`, `weight`,`height`,`email`, `password`,`status`)
+        VALUES (null,#{userName}, #{age}, #{weight}, #{height}, #{email}, #{password},
+                1)
+    </insert>
+
+    <update id="updateUser" parameterType="bo.ucb.edu.ingsoft.model.User">
+        UPDATE users
+        SET name = #{userName}, weight = #{weight}, height=#{height}
+        WHERE user_id = #{idUser}
+    </update>
+
+    <select id="getUsers" resultType="bo.ucb.edu.ingsoft.dto.UserResponse">
+    SELECT
+    a.user_id as idUser,
+    a.name as userName,
+    a.age as age,
+    a.weight as weight,
+    a.height as height,
+    a.email as email,
+    a.password as password
+    FROM users a
+    WHERE a.status =1;
+    </select>
+
+    <select id="getUserById" resultType="bo.ucb.edu.ingsoft.dto.UserResponse">
+    SELECT
+    a.user_id as idUser,
+    a.name as userName,
+    a.age as age,
+    a.weight as weight,
+    a.height as height,
+    a.email as email,
+    a.password as password
+    FROM users a
+    WHERE a.user_id = #{userId}
+    </select>
+
+    <select id="findUserByEmailPassword" resultType="Integer">
+        SELECT DISTINCT
+            a.user_id as userId
+        FROM users a
+        WHERE
+          a.email = #{email}
+          and a.status=1
+    </select>
+
+    <select id="getPasswordEncrypted" resultType="String">
+        SELECT DISTINCT
+            a.password as password
+        FROM users a
+        WHERE
+          a.email = #{email}
+    </select>
+
+</mapper>

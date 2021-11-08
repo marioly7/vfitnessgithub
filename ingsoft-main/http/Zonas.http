@@ -1,0 +1,8 @@
+###Request para obtener los usuarios
+GET http://localhost:8083/zonas/allZonas
+Accept: application/json
+
+###
+
+GET http://localhost:8083/zonas/zonaById?zonaId=2
+Accept: application/json

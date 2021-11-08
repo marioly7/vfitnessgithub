@@ -1,0 +1,40 @@
+//agregando comentario de prueba
+POST http://localhost:8083/user/addUser
+Accept: application/json
+Content-Type: application/json
+
+{
+  "userName": "Rosangela López",
+  "age": "35",
+  "weight": "82.3",
+  "height": "1.66",
+  "email": "rosangelalopez@gmail.com",
+  "password": "rosangela"
+}
+
+###
+PUT http://localhost:8083/user/updateUser
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idUser": "5",
+  "userName": "Miguel Vargas",
+  "weight": "67",
+  "height": "1.92"
+}
+
+
+###Request para obtener los usuarios
+GET http://localhost:8083/user/allUsers
+Accept: application/json
+
+###
+
+GET http://localhost:8083/user/login?email=sandra%40gmail.com&password=sandra
+Accept: application/json
+
+###
+
+GET http://localhost:8083/user/userById?userId=8
+Accept: application/json

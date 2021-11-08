@@ -1,0 +1,15 @@
+###Request para obtener traduccion con ChromeDriver
+GET http://localhost:8083/recipe/translation?text=Green Beans Alfredo
+Accept: application/json
+
+
+###Request para obtener traduccion con Google API
+POST https://translation.googleapis.com/language/translate/v2?key=AIzaSyAOC41fmUXWd4eJY7oKQUvMDycxa95gFno
+Accept: application/json
+
+{
+    "q": "Green Beans Alfredo",
+    "source": "en",
+    "target": "es",
+    "format": "text"
+}
