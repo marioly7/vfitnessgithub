@@ -1,5 +1,5 @@
 //agregando comentario de prueba
-POST http://localhost:8083/user/addUser
+POST http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/user/addUser
 Accept: application/json
 Content-Type: application/json
 
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:8083/user/updateUser
+PUT http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/user/updateUser
 Accept: application/json
 Content-Type: application/json
 
@@ -26,15 +26,15 @@ Content-Type: application/json
 
 
 ###Request para obtener los usuarios
-GET http://localhost:8083/user/allUsers
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/user/allUsers
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/user/login?email=sandra%40gmail.com&password=sandra
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/user/login?email=tania%40gmail.com&password=tania
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/user/userById?userId=8
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/user/userById?userId=8
 Accept: application/json

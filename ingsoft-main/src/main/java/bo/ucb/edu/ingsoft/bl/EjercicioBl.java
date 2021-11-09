@@ -45,6 +45,16 @@ public class EjercicioBl {
         return user;
     }
 
+    public Integer userProgress(Integer userId){
+        Integer user=userDao.getUserProgress(userId);
+        return user;
+    }
+
+    public Integer getEjerciciosCount(){
+        Integer user=userDao.getEjerciciosCount();
+        return user;
+    }
+
     public void updateStatus(UsuarioEjercicios usuarioEjercicios) {
         userDao.updateStatus(usuarioEjercicios);
     }

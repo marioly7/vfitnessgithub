@@ -1,8 +1,8 @@
 ###Request para obtener los usuarios
-GET http://localhost:8083/zonas/allZonas
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/zonas/allZonas
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/zonas/zonaById?zonaId=2
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/zonas/zonaById?zonaId=2
 Accept: application/json

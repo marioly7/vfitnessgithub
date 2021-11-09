@@ -4,7 +4,7 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://b5b0a0fe438319:5a79e427@us-cdbr-east-04.cleardb.com/heroku_f9435daf7d460d2?reconnect=true
+    url: jdbc:mysql://localhost:8080/virtual_fitness_two?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: b5b0a0fe438319
     password: 5a79e427
     hikari:

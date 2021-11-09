@@ -40,6 +40,7 @@ public class EjerciciosApi {
         return user;
     }
 
+
     @RequestMapping(value="/ejercicioByVideoId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public EjercicioResponse ejercicioByVideoId(@RequestParam Integer videoId, @RequestParam Integer dificultadId, HttpServletRequest request) throws Exception {
         EjercicioResponse user=userBl.getEjercicioByVideoId(videoId,  dificultadId);
@@ -49,6 +50,18 @@ public class EjerciciosApi {
     @RequestMapping(value="/ejercicioStatusByUserId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Integer ejercicioStatusByUserId(@RequestParam Integer ejercicioId, @RequestParam Integer userId, HttpServletRequest request) throws Exception {
         Integer user=userBl.getEjercicioStatus(ejercicioId, userId);
+        return user;
+    }
+
+    @RequestMapping(value="/userProgress", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer userProgress(@RequestParam Integer userId, HttpServletRequest request) throws Exception {
+        Integer user=userBl.userProgress(userId);
+        return user;
+    }
+
+    @RequestMapping(value="/getEjerciciosCount", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer getEjerciciosCount(HttpServletRequest request) throws Exception {
+        Integer user=userBl.getEjerciciosCount();
         return user;
     }
 

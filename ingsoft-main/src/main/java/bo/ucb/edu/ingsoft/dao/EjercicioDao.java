@@ -14,6 +14,8 @@ public interface EjercicioDao {
     public EjercicioResponse getEjercicioById(Integer ejercicioId);
     public EjercicioResponse getEjercicioByVideoId(Integer videoId, Integer dificultadId);
     public Integer getEjercicioStatus(Integer ejercicioId, Integer userId);
+    public Integer getUserProgress(Integer userId);
+    public Integer getEjerciciosCount();
     public Integer userExistsInUserEjercicios(Integer userId);
     public void inserIntoUserEjercicios(Integer userId);
     public void updateStatus(UsuarioEjercicios usuarioEjercicios);

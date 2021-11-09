@@ -1,24 +1,34 @@
 ###Request para obtener los usuarios
-GET http://localhost:8083/ejercicios/allEjercicios
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/allEjercicios
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/ejercicios/ejercicioById?ejercicioId=2
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/ejercicioById?ejercicioId=2
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/ejercicios/ejercicioStatusByUserId?ejercicioId=1&userId=8
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/userProgress?userId=8
 Accept: application/json
 
 ###
 
-GET http://localhost:8083/ejercicios/ejercicioByVideoId?videoId=19&dificultadId=1
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/getEjerciciosCount
 Accept: application/json
 
 ###
-PUT http://localhost:8083/ejercicios/updateStatus
+
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/ejercicioStatusByUserId?ejercicioId=1&userId=8
+Accept: application/json
+
+###
+
+GET http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/ejercicioByVideoId?videoId=19&dificultadId=1
+Accept: application/json
+
+###
+PUT http://3.129.71.50:8080/ingsoft-0.0.1-SNAPSHOT/ejercicios/updateStatus
 Accept: application/json
 Content-Type: application/json
 

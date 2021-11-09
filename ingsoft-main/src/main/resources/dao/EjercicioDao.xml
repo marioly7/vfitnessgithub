@@ -5,6 +5,19 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.EjercicioDao">
 
 
+    <select id="getUserProgress" resultType="Integer">
+        SELECT COUNT(e.ejercicio_id)
+        FROM users_ejercicios e
+        WHERE e.user_id = #{userId}
+          AND e.status = 1
+    </select>
+
+    <select id="getEjerciciosCount" resultType="Integer">
+        SELECT COUNT(e.ejercicio_id)
+        FROM ejercicios e
+    </select>
+
+
     <select id="getEjercicios" resultType="bo.ucb.edu.ingsoft.dto.EjercicioResponse">
     SELECT
     e.ejercicio_id as ejercicioId,
